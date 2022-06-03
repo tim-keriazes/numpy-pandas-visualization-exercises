@@ -14,31 +14,46 @@ a_mask = a < 0 #storing that boolean as a_mask
 
 a[a_mask]
 
-len(a[a <0])
+len(a[a < 0])
 #4
 
 
 # How many positive numbers are there?
-len(a[a>0])
+
+len(a[a > 0])
 #5
 
 # How many even positive numbers are there?
 
+pos_even = a[(a>0) & (a%2==0)] #assigne pos even to variable, check length
+len(pos_even)
+#3
+
+
 # If you were to add 3 to each data point, how many positive numbers would there be?
+#(a+3)>0 finds boolean of array, function np.sum counts the true
+np.sum((a+3)>0)
+#10
 
 # If you squared each number, what would the new mean and standard deviation be?
+#np.mean and np.std of the **2 operator
+np.mean(a**2)
+np.std(a**2)
 
-# A common statistical operation on a dataset is centering. This means to adjust the data such that the mean of the data is 0. This is done by subtracting the mean from each data point. Center the data set. See this link for more on centering.
+# A common statistical operation on a dataset is centering. This means to adjust the data such that the mean of the data is 0. 
+# This is done by subtracting the mean from each data point. Center the data set. See this link for more on centering.
+center_value=np.mean(a)
+a-center_value
+#array([  1.,   7.,   9.,  20.,  -5.,  -4.,  -3.,  -3.,  -3.,  -9.,   0., -10.])
 
 # Calculate the z-score for each data point. Recall that the z-score is given by:
+#zscore= (a-np.mean(a))/np.std(a)
 
-# Z
-# =
-# x
-# −
-# μ
-# σ
-# Copy the setup and exercise directions from More Numpy Practice into your numpy_exercises.py and add your solutions.
+(a-np.mean(a))/np.std(a)
+
+#array([ 0.12403473,  0.86824314,  1.11631261,  2.48069469, -0.62017367,
+ #      -0.49613894, -0.3721042 , -0.3721042 , -0.3721042 , -1.11631261,
+  #      0.        , -1.24034735])
 
 import numpy as np
 # Life w/o numpy to life with numpy
